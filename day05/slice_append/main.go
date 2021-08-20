@@ -11,7 +11,11 @@ func main() {
 
 	// 调用append函数用原来的切片变量接收返回值，让老数组早点回收内存
 	// append追加元素，原来的底层数组放不下的时候，Go底层就会把底层数组换一个
-
 	s1 = append(s1, "广州")
+	fmt.Printf("s1=%v len(s1)=%d cap(s1)=%d\n", s1, len(s1), cap(s1))
+	s1 = append(s1, "杭州", "佛山")
+	fmt.Printf("s1=%v len(s1)=%d cap(s1)=%d\n", s1, len(s1), cap(s1))
+	ss := []string{"武汉", "西安", "苏州"}
+	s1 = append(s1, ss...) // ...表示拆分
 	fmt.Printf("s1=%v len(s1)=%d cap(s1)=%d\n", s1, len(s1), cap(s1))
 }
